@@ -30,7 +30,7 @@ func main() {
 
 	log.Printf("Sum result: %d", sumResponse.Result)
 
-  subResponse, err := c.Sub(ctx, &proto.SubRequest{
+	subResponse, err := c.Sub(ctx, &proto.SubRequest{
 		Num1: 1,
 		Num2: 2,
 	})

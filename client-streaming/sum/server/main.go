@@ -29,7 +29,7 @@ func (s *GrpcServer) Sum(sumServer proto.SumService_SumServer) error {
 			return err
 		}
 
-    log.Printf("Received: %v", req)
+		log.Printf("Received: %v", req)
 		sum += req.GetNum()
 	}
 

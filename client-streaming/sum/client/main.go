@@ -36,10 +36,10 @@ func main() {
 	}
 
 	// Close the stream and receive the result
-  res, err := stream.CloseAndRecv()
-  if err != nil {
-    log.Fatalf("Error while receiving response: %v", err)
-  }
+	res, err := stream.CloseAndRecv()
+	if err != nil {
+		log.Fatalf("Error while receiving response: %v", err)
+	}
 
-  log.Printf("Sum result: %d", res.Result)
+	log.Printf("Sum result: %d", res.Result)
 }

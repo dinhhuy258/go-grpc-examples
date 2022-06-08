@@ -40,7 +40,7 @@ func (s *GrpcServer) Sub(
 }
 
 func main() {
-  l, err := net.Listen("tcp", ":8080")
+	l, err := net.Listen("tcp", ":8080")
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
