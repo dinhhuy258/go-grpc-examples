@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package sum;
+
+option go_package = "sum/proto";
+
+message NumberRequest { int64 num = 1; }
+
+message SumResponse { int64 result = 1; }
+
+service SumService { rpc Sum(stream NumberRequest) returns (SumResponse); }
