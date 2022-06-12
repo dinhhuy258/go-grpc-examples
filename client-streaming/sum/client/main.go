@@ -22,6 +22,9 @@ func main() {
 
 	// Create stream to send numbers
 	stream, err := c.Sum(context.Background())
+  if err != nil {
+    log.Fatalf("failed to call Sum: %v", err)
+  }
 
 	// Send request to grpc server
 	for i := 0; i < 10; i++ {
@@ -30,7 +33,9 @@ func main() {
 			Num: int64(i),
 		}
 
-		stream.Send(&numberRequest)
+    if err := stream.Send(&numberRequest); err != nil {
+      log.Fatalf("failed to send request: %v", err)
+    }
 
 		time.Sleep(time.Second)
 	}

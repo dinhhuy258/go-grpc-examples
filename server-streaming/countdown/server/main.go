@@ -19,9 +19,12 @@ func (s *GrpcServer) Countdown(req *proto.CountdownRequest, stream proto.Countdo
 	log.Printf("Countdown request: %v", req.Timer)
 
 	for i := req.Timer; i > 0; i-- {
-		stream.Send(&proto.CountdownResponse{
+    err := stream.Send(&proto.CountdownResponse{
 			Count: i,
 		})
+    if err != nil {
+      log.Fatalf("failed to send response: %v", err)
+    }
 
 		time.Sleep(1 * time.Second)
 	}
