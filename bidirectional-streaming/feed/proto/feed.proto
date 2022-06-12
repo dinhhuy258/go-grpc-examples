@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package feed;
+option go_package = "feed/proto";
+
+message FeedRequest { string feed = 1; }
+
+message FeedResponse { string feed = 1; }
+
+service FeedService {
+  rpc Feed(stream FeedRequest) returns (stream FeedResponse) {}
+}
