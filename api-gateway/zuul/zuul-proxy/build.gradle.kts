@@ -15,12 +15,12 @@ repositories {
 	mavenCentral()
 }
 
-extra["springCloudVersion"] = "2021.0.3"
+extra["springCloudVersion"] = "Finchley.SR2"
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
-	implementation("org.springframework.cloud:spring-cloud-starter-netflix-zuul:2.2.10.RELEASE")
+	implementation("org.springframework.cloud:spring-cloud-starter-netflix-zuul" )
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -28,7 +28,7 @@ dependencies {
 
 dependencyManagement {
 	imports {
-		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+		mavenBom("org.springframework.cloud:spring-cloud-starter-parent:${property("springCloudVersion")}")
 	}
 }
 
